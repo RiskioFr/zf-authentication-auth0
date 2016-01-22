@@ -1,0 +1,41 @@
+{
+    "name": "riskio/zf-authentication-auth0",
+    "description": "Auth0 authentication for Zend Framework 2",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "authentication",
+        "oauth"
+    ],
+    "homepage": "https://github.com/riskio/zf-authentication-auth0",
+    "authors": [
+        {
+            "name": "Nicolas Eeckeloo",
+            "email": "neeckeloo@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.riskio.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "riskio/oauth2-auth0": "~0.1",
+        "zendframework/zend-authentication": "~2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Riskio\\Authentication\\Auth0\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Riskio\\Authentication\\Auth0\\": "tests/"
+        }
+    }
+}
