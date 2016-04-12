@@ -4,7 +4,7 @@ namespace Riskio\Authentication\Auth0;
 use Exception;
 use League\OAuth2\Client\Grant\AuthorizationCode;
 use League\OAuth2\Client\Provider\ProviderInterface;
-use Riskio\Authentication\Auth0\OAuth2Result;
+use League\OAuth2\Client\Token\AccessToken;
 use Zend\Authentication\Adapter\AdapterInterface;
 
 class Adapter implements AdapterInterface
@@ -15,38 +15,26 @@ class Adapter implements AdapterInterface
     private $oauthProvider;
 
     /**
-     * @var string
+     * @var int
      */
     private $code;
 
-    /**
-     * @param ProviderInterface $oauthProvider
-     */
     public function __construct(ProviderInterface $oauthProvider)
     {
         $this->oauthProvider = $oauthProvider;
     }
 
-    /**
-     * @param string $code
-     */
-    public function setCode($code)
+    public function setCode(int $code)
     {
-        $this->code = (string) $code;
+        $this->code = $code;
     }
 
-    /**
-     * @return string
-     */
     public function getCode()
     {
         return $this->code;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function authenticate()
+    public function authenticate() : OAuth2Result
     {
         if (empty($this->code)) {
             return new OAuth2Result(
@@ -87,10 +75,7 @@ class Adapter implements AdapterInterface
         }
     }
 
-    /**
-     * @return \League\OAuth2\Client\Token\AccessToken
-     */
-    private function getAccessToken()
+    private function getAccessToken() : AccessToken
     {
         $grant = new AuthorizationCode();
 

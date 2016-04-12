@@ -17,16 +17,16 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://packages.riskio.fr"
+            "url": "https://packages.riskio.fr"
         }
     ],
     "require": {
-        "php": ">=5.5",
+        "php": "^7.0",
         "riskio/oauth2-auth0": "~0.1",
         "zendframework/zend-authentication": "~2.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.7"
+        "phpunit/phpunit": "~5.3"
     },
     "autoload": {
         "psr-4": {

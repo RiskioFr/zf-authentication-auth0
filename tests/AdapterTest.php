@@ -14,7 +14,7 @@ class AdapterTest extends \PHPUnit_Framework_TestCase
      */
     public function authenticate_GivenCodeAndValidIdentity_ShouldReturnSuccessResult()
     {
-        $code  = 'foo';
+        $code  = 123;
         $token = $this->prophesize(AccessToken::class);
         $user  = new User();
         $providerMock = $this->getOauthProvider($token, $user);
