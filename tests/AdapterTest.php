@@ -5,9 +5,10 @@ use League\OAuth2\Client\Entity\User;
 use League\OAuth2\Client\Grant\AuthorizationCode;
 use League\OAuth2\Client\Provider\ProviderInterface;
 use League\OAuth2\Client\Token\AccessToken;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 
-class AdapterTest extends \PHPUnit_Framework_TestCase
+class AdapterTest extends TestCase
 {
     /**
      * @test
