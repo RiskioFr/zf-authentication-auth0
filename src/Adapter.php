@@ -3,14 +3,14 @@ namespace Riskio\Authentication\Auth0;
 
 use Exception;
 use League\OAuth2\Client\Grant\AuthorizationCode;
-use League\OAuth2\Client\Provider\ProviderInterface;
+use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
 use Zend\Authentication\Adapter\AdapterInterface;
 
 class Adapter implements AdapterInterface
 {
     /**
-     * @var ProviderInterface
+     * @var AbstractProvider
      */
     private $oauthProvider;
 
@@ -19,7 +19,7 @@ class Adapter implements AdapterInterface
      */
     private $code;
 
-    public function __construct(ProviderInterface $oauthProvider)
+    public function __construct(AbstractProvider $oauthProvider)
     {
         $this->oauthProvider = $oauthProvider;
     }
@@ -47,8 +47,7 @@ class Adapter implements AdapterInterface
         try {
             $token = $this->getAccessToken();
 
-            /* @var $user \League\OAuth2\Client\Entity\User */
-            $user = $this->oauthProvider->getUserDetails($token);
+            $user = $this->oauthProvider->getResourceOwner($token);
             if (!$user) {
                 return new OAuth2Result(
                     OAuth2Result::FAILURE_IDENTITY_NOT_FOUND,

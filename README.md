@@ -9,7 +9,7 @@ Zend Authentication adapter for Auth0
 ## Requirements
 
 * PHP 7.0+
-* [riskio/oauth2-auth0 ^0.1](https://github.com/RiskioFr/oauth2-auth0)
+* [riskio/oauth2-auth0 ^2.0](https://github.com/RiskioFr/oauth2-auth0)
 * [zendframework/zend-authentication ^2.5](https://github.com/zendframework/zend-authentication)
 
 ## Installation

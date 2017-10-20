@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": "^7.0",
-        "riskio/oauth2-auth0": "~0.1",
+        "riskio/oauth2-auth0": "~2.0",
         "zendframework/zend-authentication": "~2.5"
     },
     "require-dev": {
